@@ -3,3 +3,12 @@ os: linux
 files:
   - source: /
     destination: /var/www/html/
+hooks:
+  BeforeInstall:
+    - location: scripts/rename.sh
+      timeout: 300
+      runas: ec2-user
+  AfterInstall:
+    - location: scripts/command.sh
+      timeout: 300
+      runas: ec2-user
