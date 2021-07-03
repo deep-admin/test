@@ -3,15 +3,5 @@ os: linux
 files:
   - source: /
     destination: /var/www/html/
-hooks:
-  AfterInstall:
-
-# set files to 644 [except *.pl *.cgi *.sh]
-find /var/www/ -type f -not -name ".pl" -not -name ".cgi" -not -name "*.sh" -print0 | xargs -0 chmod 0644
-chmod +x /var/www/html/command.sh
-
-# set folders to 755
-find /var/www/ -type d -print0 | xargs -0 chmod 0755
-    - location: command.sh
-      timeout: 300
-      runas: ec2-user
+    
+   
